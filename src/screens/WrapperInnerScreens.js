@@ -3,12 +3,11 @@ import { SafeAreaView, View, Text, TouchableOpacity, Dimensions, StyleSheet } fr
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, DrawerItem, } from '@react-navigation/drawer';
 import { navigationRef } from '../helpers/rootNavigation';
 
-import { Provider as AccountDataProvider } from '../context/AccountDataContext';
+import { Provider as RegistrationProvider } from '../context/RegistrationContext';
 import { Context as AuthContext } from '../context/AuthContext';
 
 import HomeScreen from './HomeScreen';
-import AdminHomeScreen from './AdminHomeScreen';
-import QuestionScreen from './QuestionScreen';
+import PatientRegistrationScreen from './PatientRegistrationScreen';
 
 import tw from 'tailwind-react-native-classnames';
 import Images from '@assets/images';
@@ -33,6 +32,10 @@ const WrapperInnerScreens = () => {
                         onPress={() => props.navigation.navigate('Inicio')}
                     />
                     <DrawerItem
+                        label="Inicio"
+                        onPress={() => props.navigation.navigate('PatientRegistration')}
+                    />
+                    <DrawerItem
                         label="Salir"
                         onPress={() => {
                             signout()
@@ -48,7 +51,7 @@ const WrapperInnerScreens = () => {
 
     return (
         <SafeAreaView style={[tw`flex-1 `]}>
-            <AccountDataProvider>
+            <RegistrationProvider>
                 <Drawer.Navigator
                     screenOptions={{
                         drawerActiveBackgroundColor: '#005691',
@@ -63,10 +66,9 @@ const WrapperInnerScreens = () => {
                     drawerContent={(props) => <CustomDrawerContent {...props} />}
                     useLegacyImplementation>
                     <Drawer.Screen name="Inicio" component={HomeScreen} />
-                    <Drawer.Screen name="InicioAdmin" component={AdminHomeScreen} />
-                    <Drawer.Screen name="QuestionScreen" component={QuestionScreen} />
+                    <Drawer.Screen name="PatientRegistration" component={PatientRegistrationScreen} />
                 </Drawer.Navigator>
-            </AccountDataProvider>
+            </RegistrationProvider>
         </SafeAreaView>
     )
 }

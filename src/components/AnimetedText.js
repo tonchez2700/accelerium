@@ -1,47 +1,41 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
-import { StyleSheet, Text, View, Animated } from 'react-native'
+import React, { useContext, useState, useEffect, } from 'react'
+import { StyleSheet, View, Text, TouchableWithoutFeedback, UIManager, LayoutAnimation } from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
 import moment from 'moment';
 
-const AnimetedText = ({ data }) => {
+const AnimetedText = ({ title, content }) => {
 
+    const [isExpanded, setIsExpanded] = useState(false);
 
-    const FadeInView = (props) => {
-        const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
+    const toggleAccordion = () => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+        setIsExpanded(!isExpanded);
+    };
 
-        useEffect(() => {
-            Animated.timing(
-                fadeAnim,
-                {
-                    toValue: 1,
-                    duration: 1000,
-                }
-            ).start();
-        }, [fadeAnim])
-
-        return (
-            <Animated.View                 // Special animatable View
-                style={{
-                    ...props.style,
-                    opacity: fadeAnim,         // Bind opacity to animated value
-                }}
-            >
-                {props.children}
-            </Animated.View>
-        );
+    if (
+        Platform.OS === 'android' &&
+        UIManager.setLayoutAnimationEnabledExperimental
+    ) {
+        UIManager.setLayoutAnimationEnabledExperimental(true);
     }
-    const navigation = useNavigation();
     return (
-
         <View>
-            <FadeInView >
-                <Text style={styles.Atext}>Seleccione un método de pago para continuar</Text>
-            </FadeInView>
+            <TouchableWithoutFeedback onPress={toggleAccordion}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#003C71', flex: 1, padding: 5 }}>
+                    <Text style={{ color: 'white', fontSize: 23, fontWeight: 'bold', }}>{title}</Text>
+                    <Text style={{ color: 'white', fontSize: 28, fontWeight: 'bold', }}>{isExpanded ? '-' : '+'}</Text>
+                </View>
+            </TouchableWithoutFeedback>
+            {isExpanded && (
+                <View>
+                    {content}
+                </View>
+            )}
         </View>
-    )
-}
+    );
+};
 
 export default AnimetedText
 

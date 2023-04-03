@@ -6,10 +6,9 @@ import {
 import { general } from '../theme/customTheme';
 import { Icon, Button, Slider } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import { Context as AccountDataContext } from '../context/AccountDataContext';
-import setLicense
+import { Context as AccountDataContext } from '../context/RegistrationContext';
 import tw from 'tailwind-react-native-classnames'
-import EntryList from '../components/EntryList';
+import MenuItem from '../components/MenuItem';
 import moment from 'moment';
 
 const HomeScreen = () => {
@@ -26,13 +25,24 @@ const HomeScreen = () => {
     const renderContent = () => {
 
         return (
-            <View>
-                {/* <BlinkID
-                    licenseKey="sRwAAAAgY29tLnRvbmNoZXoyNzAwLmFjY2VsZXJpdW1wcnVlYmHBchTg6pO2Os9iNO18Al+CvT6AVwcmqXCK1Op5d0MjkgV+6kuIcYM8rBFRHJhwt4HNg2UYkj4NdVl4f1Dhi9uzLtlC7t6UuTuJwxoKPXNLRebawBHW22lmd0FvC0CfpOfrAvZbtL7fI2Q6YE/sUxetQY48/7U3SF4wOUPtfH1xiXD/3Sdb0RL34GVMvhGcJUkP0DFUD+RilXHpWKw6rdiPskzTzbunQ7Yn"
-                    onScanningFinished={handleScanningFinished}
-                /> */}
-                <Text style={styles.instructions}>Apunta la cámara al documento</Text>
-            </View>
+            <View style={{ flex: 1, backgroundColor: '#F7F8FAF', padding: 20, }}>
+                <View style={{ flex: 1, backgroundColor: '#FFFFFF', padding: 20, borderWidth: 1, borderColor: '#7F7F7F', borderRadius: 10, alignItems: 'center' }}>
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', width: '100%' }}>
+                        <MenuItem
+                            title='REGISTRO DE PACIENTES'
+                            icon='user-plus'
+                            color='#003C71'
+                            fontFamily='font-awesome-5'
+                            navigateScreen='PatientRegistration' />
+                        <MenuItem
+                            title='PACIENTES'
+                            icon='user'
+                            color='#003C71'
+                            fontFamily='font-awesome-5'
+                            navigateScreen='PatientRegistration' />
+                    </View>
+                </View >
+            </View >
 
         );
     }

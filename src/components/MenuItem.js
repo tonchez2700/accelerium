@@ -11,7 +11,7 @@ const MenuItem = ({ title, icon, fontFamily, navigateScreen, color }) => {
     return (
         <TouchableOpacity
             onPress={() => navigation.navigate(navigateScreen)}
-            style={[tw`p-7 bg-white shadow-md rounded-md w-9/12 mt-3 mb-3`, { borderColor: '#2D5DA0', borderWidth: 2 }]}>
+            style={[tw`p-7 bg-white shadow-md rounded-md mt-3`, { borderColor: '#2D5DA0', borderWidth: 2, width: '40%' }]}>
             <Icon
                 size={36}
                 name={icon}

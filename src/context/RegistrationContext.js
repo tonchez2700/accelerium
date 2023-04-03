@@ -20,7 +20,7 @@ const initialState = {
 
 }
 
-const AccountDataReducer = (state = initialState, action) => {
+const RegistrationReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'CLEAR_STATE':
@@ -154,7 +154,7 @@ const getUserQuestion = (dispatch) => {
 
 
 export const { Context, Provider } = createDataContext(
-    AccountDataReducer,
+    RegistrationReducer,
     {
         clearState,
         getUserQuestionnaires,

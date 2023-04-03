@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, Text, View, Modal, Pressable, Dimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import { Context as AccountDataContext } from '../../context/AccountDataContext';
+import { Context as AccountDataContext } from '../../context/RegistrationContext';
 import tw from 'tailwind-react-native-classnames'
 import { Icon, Button } from 'react-native-elements'
 

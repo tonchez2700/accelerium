@@ -48,33 +48,35 @@ export const general = StyleSheet.create({
     },
 })
 
-export const QuestionStyle = StyleSheet.create({
+export const RegistrationStyle = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF',
-        padding: 20
     },
-    CardQuestHelp: {
-        marginTop: 10,
-        borderWidth: 1,
-        borderColor: '#B7B7B7',
-        borderRadius: 5,
-        flexDirection: 'row',
-        backgroundColor: 'white'
+    ViewBoder: {
+        borderWidth: 2,
+        borderColor: '#7F7F7F',
+        padding: 10,
+        margin: 10,
+        position: 'relative',
+        borderRadius: 4
     },
-    ButtonQuestHelp: {
-        backgroundColor: "#012B54",
-        flex: 1,
-        borderBottomRightRadius: 4,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderTopRightRadius: 4
-    },
-    ButtonGruopQuest: {
-        borderRadius: 5,
-        borderWidth: 1,
-        borderColor: '#B7B7B7',
+    TextBoder: {
+        position: 'absolute',
+        top: -10,
+        left: 10,
         backgroundColor: 'white',
+        paddingHorizontal: 5,
+        fontSize: 16
+    },
+    Input: {
+        paddingLeft: 20,
+    },
+    InputAcordion: {
+        borderWidth: 2,
+        borderColor: '#7F7F7F',
+        padding: 10,
+        borderRadius: 4
     },
 
 })
