@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { StyleSheet, Text, View, Alert, ScrollView, Dimensions, ImageBackground, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, Text, View, Alert, ScrollView, Dimensions, ImageBackground, KeyboardAvoidingView, Image } from 'react-native'
 import tw from 'tailwind-react-native-classnames';
 import { Icon, Input } from 'react-native-elements'
 import InputForm from '../components/Forms/InputForm';
@@ -9,6 +9,8 @@ import { AuthSchema } from './../config/schemas';
 import useHandleOnChangeTextInput from './../hooks/useHandleOnChangeTextInput';
 import SimpleNavBar from '../components/SimpleNavBar'
 import { useNavigation } from '@react-navigation/native';
+import { ColorsG } from '../../constants/ColorsGlobal';
+import images from '../components/assets/images';
 
 const AuthScreen = () => {
     const navigation = useNavigation();
@@ -22,7 +24,12 @@ const AuthScreen = () => {
             <ScrollView contentContainerStyle={tw`items-center`}>
 
                 <SimpleNavBar />
-                <Text style={[tw`text-3xl mt-10 font-bold`, { color: '#004480' }]}>Iniciar Sesión</Text>
+                <View style={{marginTop: 60, marginBottom: 30}}>
+                    <Image
+                        source={images.logo}
+                    />
+                </View>
+                <Text style={{fontSize: 32, fontWeight: "bold", color: ColorsG.primary}}>Iniciar Sesión</Text>
                 <View style={tw`w-4/5 mt-8`}>
                     <InputForm
                         maxLength={50}
@@ -85,8 +92,9 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         borderRadius: 5,
         elevation: 5,
-        backgroundColor: 'white',
+        backgroundColor: ColorsG.ligth2,
         borderBottomColor: 'white'
+
     }
 
 })

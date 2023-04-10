@@ -1,5 +1,5 @@
 const images = {
-    logo: require('./img/logo.png'),
+    logo: require('./img/LogoAcceleriumBlack.png'),
     icon: require('./img/logo.png'),
     speiA: require('./img/spei.png'),
     speiB: require('./img/spei2.png'),

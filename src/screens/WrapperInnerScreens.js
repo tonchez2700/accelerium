@@ -14,6 +14,7 @@ import tw from 'tailwind-react-native-classnames';
 import Images from '@assets/images';
 import NavBar from '../components/NavBar'
 import SimpleNavBar from '../components/SimpleNavBar'
+import RegisterScreen from './RegisterScreen';
 
 
 const Drawer = createDrawerNavigator();
@@ -65,6 +66,7 @@ const WrapperInnerScreens = () => {
                     <Drawer.Screen name="Inicio" component={HomeScreen} />
                     <Drawer.Screen name="InicioAdmin" component={AdminHomeScreen} />
                     <Drawer.Screen name="QuestionScreen" component={QuestionScreen} />
+                    <Drawer.Screen name="Register" component={RegisterScreen} />
                 </Drawer.Navigator>
             </AccountDataProvider>
         </SafeAreaView>

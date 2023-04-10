@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-
-
 export const general = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FFFFFF',
-        padding: 20
+        backgroundColor: '#F7F8FA',
+        padding: 10, 
+        alignContent: "center",
+        alignItems: "center",
     },
     Tittle: {
         marginTop: 43,
