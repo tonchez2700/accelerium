@@ -1,1 +1,1 @@
-export const apiUrlBase = 'http://cpxproject.com/pos3/api'
+export const apiUrlBase = 'https://www.cpxproject.com/pos3/api'

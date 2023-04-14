@@ -7,6 +7,12 @@ import { RegistrationStyle } from '../theme/customTheme';
 import { Button, Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
 import { Context as RegistrationContext } from '../context/RegistrationContext';
+import MaskInput, { Masks } from 'react-native-mask-input';
+import InputMarkLabel from '../components/Inputs/InputMarkLabel';
+import InputOneLabel from '../components/Inputs/InputOneLabel';
+import InputTwoLabel from '../components/Inputs/InputTwoLabel';
+import InputThreeLabel from '../components/Inputs/InputThreeLabel';
+
 import { AccordionItem } from 'react-native-accordion-list-view';
 import AnimetedText from '../components/AnimetedText';
 import ModalAlert from '../components/Modal/ModalAlert';
@@ -103,39 +109,11 @@ const PatientRegistrationScreen = () => {
 
                 <AnimetedText title="ANTECEDENTES HEREDOFAMILIARES" content={
                     <View style={{ flex: 1, padding: 10, }}>
-                        <View style={{ flex: 1 }}>
-                            <Text style={{ fontSize: 26, color: '#003C71', fontWeight: 'bold' }}>Diabetes</Text>
-                            <TextInput
-                                style={[RegistrationStyle.InputAcordion, { flex: 1 }]}
-                                value={text}
-                                onChangeText={setText}
-                            />
-                        </View>
-                        <View style={{ flex: 1 }}>
-                            <Text style={{ fontSize: 26, color: '#003C71', fontWeight: 'bold' }}>Cáncer</Text>
-                            <TextInput
-                                style={[RegistrationStyle.InputAcordion, { flex: 1 }]}
-                                value={text}
-                                onChangeText={setText}
-                            />
-                        </View>
-                        <View style={{ flex: 1 }}>
-                            <Text style={{ fontSize: 26, color: '#003C71', fontWeight: 'bold' }}>Cardiopatías</Text>
-                            <TextInput
-                                style={[RegistrationStyle.InputAcordion, { flex: 1 }]}
-                                value={text}
-                                onChangeText={setText}
-                            />
-                        </View>
-                        <View style={{ flex: 1 }}>
-                            <Text style={{ fontSize: 26, color: '#003C71', fontWeight: 'bold' }}>Enfermedades tiroideas</Text>
-                            <TextInput
-                                style={[RegistrationStyle.InputAcordion, { flex: 1 }]}
-                                value={text}
-                                onChangeText={setText}
-                            />
-                        </View>
-                        <View style={{ flex: 1 }}>
+                        <InputOneLabel name={'Diabetes'} placeholder={'Parentesco'} />
+                        <InputOneLabel name={'Cáncer'} placeholder={'Parentesco'} />
+                        <InputOneLabel name={'Cardiopatías'} placeholder={'Parentesco'} />
+                        <InputOneLabel name={'Enfermedades tiroideas'} placeholder={'Parentesco'} />
+                        <View style={{ flex: 1, marginTop: 20 }}>
                             <Text style={{ fontSize: 26, color: '#003C71', fontWeight: 'bold' }}>Otras enfermedades</Text>
                             <TextInput
                                 style={[RegistrationStyle.InputAcordion, { flex: 1 }]}
@@ -153,6 +131,56 @@ const PatientRegistrationScreen = () => {
                                 onChangeText={setText}
                             />
                         </View>
+                    </View>
+                } />
+                <AnimetedText title="ANTECEDENTES PERSONALES NO PATOLÓGICOS" content={
+                    <View style={{ flex: 1, padding: 10, }}>
+                        <InputTwoLabel name={'Realiza actividades físicas'} placeholder1={'Tipo'} placeholder2={'Frecuencia'} mask={false} />
+                        <View style={{ flex: 1 }}>
+                            <InputThreeLabel
+                                title={'Tabaquismo'}
+                                input1={'Tabaquismo'}
+                                input2={''}
+                                input3={''}
+                                placeholder={'¿Cuántos al día?'} />
+                            <InputThreeLabel
+                                title={'Alcoholismo'}
+                                input1={'Tabaquismo'}
+                                input2={''}
+                                input3={''}
+                                placeholder={'Tipo'} />
+                            <InputThreeLabel
+                                title={'Uso de sustancias (drogas)'}
+                                input1={'Tabaquismo'}
+                                input2={''}
+                                input3={''}
+                                placeholder={'Tipo'} />
+                            <InputOneLabel name={'Uso de medicamentos naturistas'} placeholder={'Especifique'} />
+                            <InputOneLabel name={'¿Vacunas o inmunización reciente?'} placeholder={'Especifique'} />
+                            <InputOneLabel name={'¿Conoce grupo o RH?'} placeholder={'Especifique'} />
+                        </View>
+                    </View>
+                } />
+                <AnimetedText title="Registro de medicamentos utilizados previo al ingreso" content={
+                    <View style={{ flex: 1, padding: 10, }}>
+q               
+                    </View>
+                } />
+                <AnimetedText title="ANTECEDENTES PERSONALES PATOLÓGICOS" content={
+                    <View style={{ flex: 1, padding: 10, }}>
+                        <InputOneLabel name={'Hospitalización'} placeholder={'Especifique'} />
+                        <InputTwoLabel name={'Cirugías previas'} placeholder1={'Inicio de la enfermedad'} placeholder2={'¿Cuáles?'} mask={true} />
+                        <InputMarkLabel name={'Diabetes'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Enfermedades tiroides'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Hipertensión arterial'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Enfermedades pulmonares'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Enfermedades neurológicas'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Enfermedades de transmisión sexual'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Cardiopatía'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Cáncer'} placeholder={'Inicio de la enfermedad'} />
+                        <InputMarkLabel name={'Transfusiones'} placeholder={'Inicio de la enfermedad'} />
+                        <InputTwoLabel name={'Otros'} placeholder1={'Inicio de la enfermedad'} placeholder2={'¿Cuáles?'} mask={true} />
+
                     </View>
                 } />
                 <ModalAlert />

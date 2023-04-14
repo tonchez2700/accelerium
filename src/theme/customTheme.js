@@ -78,5 +78,15 @@ export const RegistrationStyle = StyleSheet.create({
         padding: 10,
         borderRadius: 4
     },
+    PersonalPato: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderWidth: 2,
+        borderColor: '#7F7F7F',
+        padding: 10,
+        position: 'relative',
+        borderRadius: 4,
+
+    },
 
 })
