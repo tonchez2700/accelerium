@@ -9,12 +9,12 @@ import {
   ActivityIndicator,
   Animated,
 } from "react-native";
-import { general } from "../theme/customTheme";
+import { general } from "../../theme/customTheme";
 import { Icon, Button, Slider } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
-import { Context as AccountDataContext } from "../context/AccountDataContext";
+import { Context as AccountDataContext } from "../../context/AccountDataContext";
 import moment from "moment";
-import { ColorsG } from "../../constants/ColorsGlobal";
+import { ColorsG } from "../../../constants/ColorsGlobal";
 import { FontAwesome } from "@expo/vector-icons";
 
 const AllergiesForm = () => {
@@ -38,39 +38,12 @@ const AllergiesForm = () => {
           <View style={{alignContent: "flex-start", alignItems: "flex-start", paddingBottom: 5, width: "85%"}}>
             <Text style={{color: ColorsG.primary, fontSize: 22, fontWeight: "bold", marginTop: "3%"}}>ALERGIAS</Text>
           </View>
-          
-           <View style={{width: "95%", height: "70%", borderWidth: 2, borderColor: ColorsG.primary, padding: 22}}>
-
-           <View style={{}}>
-            <Text style={{  paddingLeft: 15, fontSize: 14,}}>Medicamentos</Text>
-            <View style={{ alignItems: "center", borderWidth: 1, borderColor: ColorsG.border,  flex: 1}}>
-              <TextInput placeholder="Maria Ester Ramirewz Castañeda" style={{width: "100%", height: 55, paddingLeft: 10}}/>
-            </View>
-          </View>
-
-          
-
-          <View style={{marginTop: 28}}>
-            <Text style={{ paddingTop: 10, paddingLeft: 15, fontSize: 14,}}>Alimentos</Text>
+           <View style={{width: "95%", height: "70%", borderWidth: 2, borderColor: ColorsG.primary, padding: 22, justifyContent: "flex-start", alignContent: "flex-start", borderRadius: 4}}>
+            <Text style={{  paddingLeft: 15, fontSize: 14, alignContent: "flex-start"}}>ALERGIAS</Text>
             <View style={{ alignItems: "center", borderWidth: 1, borderColor: ColorsG.border,  height: 55}}>
-              <TextInput placeholder="..." style={{width: "100%", height: "100%", paddingLeft: 10}}/>
+              <TextInput placeholder="ALERGIAS" style={{width: "100%", height: "100%", paddingLeft: 10, fontSize: 20}}/>
             </View>
           </View>
-
-          
-         
-        </View>
-
-        <View style={{marginTop: 25, width: "80%", flexDirection: "row", justifyContent: "space-between"}}>
-            {/* <TouchableOpacity style={styles.Buttons}>
-              <Text style={{color: "#fff"}}>PressMe</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.Buttons}>
-              <Text style={{color: "#fff"}}>PressMe222</Text>
-            </TouchableOpacity> */}
-            <Button title={"button1"}/>
-            
-        </View>
 
       </View>
     );

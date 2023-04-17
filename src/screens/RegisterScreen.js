@@ -19,11 +19,19 @@ import EntryList from "../components/EntryList";
 import moment from "moment";
 import { ColorsG } from "../../constants/ColorsGlobal";
 import { FontAwesome } from "@expo/vector-icons";
-import PatientRegister from "../components/PacientRegister";
-import AddresRegister from "../components/AddresRegister";
-import ContactsRegister from "../components/ContactsRegister";
-import AllergiesForm from "../components/AllergiesForm";
+// import PatientRegister from "../components/FormsA/PacientRegister";
+// import AddresRegister from "../components/FormsA/AddresRegister";
+// import ContactsRegister from "../components/FormsA/ContactsRegister";
+// import AllergiesForm from "../components/FormsA/AllergiesForm";
 import { Ionicons } from '@expo/vector-icons'; 
+// import ServicesRegister from "../components/FormsA/Services";
+// import MedicalExpenses from "../components/FormsA/MedicalExpenses";
+import MedicalExpenses from "../components/FormsA/MedicalExpenses";
+import PatientRegister from "../components/FormsA/PacientRegister";
+import AddresRegister from "../components/FormsA/AddresRegister";
+import ContactsRegister from "../components/FormsA/ContactsRegister";
+import AllergiesForm from "../components/FormsA/AllergiesForm";
+import ServicesRegister from "../components/FormsA/Services";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -43,7 +51,7 @@ const RegisterScreen = () => {
     return (
       <View style={general.container}>
 
-        <View style={{height: 80, width: "92%", justifyContent: "space-between", flexDirection: "row", marginTop: 20, marginBottom: 10, alignContent: "center", alignItems: "center"}}>
+        <View style={{height: 80, width: "92%", justifyContent: "space-between", flexDirection: "row", marginTop: 20, marginBottom: 10, alignContent: "center", alignItems: "flex-end"}}>
           <View style={{height: 60, width: "65%", }}>
             <View style={{justifyContent: "space-between",}}>
               <Text style={{backgroundColor: "#F7F8FA", paddingLeft: 20,}}>Expediente/Buscar/Apellidos</Text>
@@ -51,7 +59,7 @@ const RegisterScreen = () => {
             </View>
             
           </View>
-          <View style={{height: 65, width: "30%", paddingTop: 1}}>
+          <View style={{height: 50, width: "30%", }}>
             <TouchableOpacity>
               <View style={{flexDirection: "row", justifyContent: "space-between", alignContent: "center", alignItems: "center", height: "100%", backgroundColor: ColorsG.primary}}>
                 <Ionicons name="qr-code" size={26} color={ColorsG.ligth1} style={{paddingLeft: 5}}/>
@@ -68,7 +76,9 @@ const RegisterScreen = () => {
             <PatientRegister/>
             <AddresRegister/>
             <ContactsRegister/>
+            <MedicalExpenses/>
             <AllergiesForm/>
+            <ServicesRegister/>
           </ScrollView>
       </View>
     );
