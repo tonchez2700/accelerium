@@ -11,13 +11,10 @@ const initialState = {
     message: null,
     isVisible: false,
     fetchingData: false,
-    indexSection: 0,
-    indexQuestion: 0,
-    questionnaire: [],
-    sections: [],
-    questionSection: '',
-    questions: '',
-
+    catalog: [],
+    file_number: '',
+    dataFrom: [],
+    dateB: '',
 }
 
 const RegistrationReducer = (state = initialState, action) => {
@@ -36,30 +33,6 @@ const RegistrationReducer = (state = initialState, action) => {
                 message: action.payload.message,
                 fetchingData: false
             }
-        case 'SET_REQUEST_PAYMENTS':
-            return {
-                ...state,
-                payments: action.payload.response,
-                fetchingData: false
-            }
-        case 'SET_QUESTIONARY_USER':
-            return {
-                ...state,
-                questionnaire: action.payload.response,
-                fetchingData: false
-            }
-        case 'SET_SECTIONS_USER':
-            return {
-                ...state,
-                questionSection: action.payload.data,
-                fetchingData: false
-            }
-        case 'SET_QUESTION_USER':
-            return {
-                ...state,
-                questions: action.payload.data,
-                fetchingData: false
-            }
         case 'CHANGE_VISIBLE_MODAL':
             let visibleCheck = !state.isVisible
             return {
@@ -69,12 +42,55 @@ const RegistrationReducer = (state = initialState, action) => {
                 fetchingData: false,
                 isVisible: visibleCheck
             }
+        case 'SET_CATALOG':
+            return {
+                ...state,
+                error: false,
+                message: '',
+                fetchingData: false,
+                catalog: action.payload.data,
+                file_number: action.payload.file_number,
+            }
+        case 'SET_CATALOG':
+            return {
+                ...state,
+                error: false,
+                message: '',
+                fetchingData: false,
+                catalog: action.payload.data,
+                file_number: action.payload.file_number,
+            }
+        case 'SET_MASK':
+            let type = action.payload.typedata
+            return {
+                ...state,
+                [type]: action.payload.value,
+            }
+        case 'SET_DATA':
+            let typedata = action.payload.typedata
+            let category = action.payload.category
+            return {
+                ...state,
+                fetchingData: false,
+                dataFrom: {
+                    ...state.dataFrom,
+                    [category]: {
+                        ...state.dataFrom[category],
+                        [typedata]: action.payload.value
+                    }
+                }
+            }
         default:
             return state
     }
 
 }
 
+
+// dataFrom: {
+//     ...state.dataFrom,
+//     [category]: { ...category, [typedata]: action.payload.value }
+// }
 const clearState = (dispatch) => {
     return () => {
         dispatch({ type: 'CLEAR_STATE' });
@@ -90,66 +106,109 @@ const isVisibleModal = (dispatch) => {
     }
 }
 
-const getUserQuestionnaires = (dispatch) => {
+const handleInputChange = (dispatch) => {
+    return async (value, typedata, category) => {
+
+        dispatch({
+            type: 'SET_DATA',
+            payload: { value, typedata, category }
+        })
+    }
+}
+
+const handleInputChangeMask = (dispatch) => {
+    return async (value, typedata) => {
+
+        dispatch({
+            type: 'SET_MASK',
+            payload: { value, typedata, }
+        })
+    }
+}
+
+const getCatalog = (dispatch) => {
     return async () => {
         try {
+            dispatch({ type: 'FETCHING_DATA', payload: { fetchingData: true } });
             const user = JSON.parse(await AsyncStorage.getItem('user'));
-            const token = user.token;
-            const id = user.userData.id;
-            const response = await httpClient.get(`users/${id}/questionnaires`,
-                {
+            const token = user.token
+
+            const countries = await httpClient
+                .get(`countries`, {
                     'Authorization': `Bearer ${token}`,
                 }
-            );
-            console.log(response);
-            dispatch({
-                type: 'SET_QUESTIONARY_USER',
-                payload: {
-                    response
+                );
+            const genders = await httpClient
+                .get(`genders`, {
+                    'Authorization': `Bearer ${token}`,
                 }
-            })
+                );
+            const relations = await httpClient
+                .get(`relations`, {
+                    'Authorization': `Bearer ${token}`,
+                }
+                );
+            const documents = await httpClient
+                .get(`documents`, {
+                    'Authorization': `Bearer ${token}`,
+                }
+                );
+            const civil_statuses = await httpClient
+                .get(`civil_statuses`, {
+                    'Authorization': `Bearer ${token}`,
+                }
+                );
+            const file_number = await httpClient
+                .get(`file_number`, {
+                    'Authorization': `Bearer ${token}`,
+                }
+                );
+            const data = {
+                countries,
+                genders,
+                relations,
+                documents,
+                civil_statuses,
+            }
+            if (data != '') {
+                dispatch({
+                    type: 'SET_CATALOG',
+                    payload: { data, file_number }
+                });
+            } else {
+                dispatch({
+                    type: 'SET_REQUEST_ERROR',
+                    payload: {
+                        error: true,
+                        message: 'Por el momento el servicio no está disponible, inténtelo mas tarde.'
+                    }
+                });
+            }
         } catch (error) {
+            console.log(error);
             dispatch({
                 type: 'SET_REQUEST_ERROR',
                 payload: {
                     error: true,
-                    message: 'Por el momento el getUserQuestionnaires no está disponible, inténtelo mas tarde.'
+                    message: 'Por el momento el servicio no está disponible, inténtelo mas tarde.'
                 }
-            })
+            });
         }
     }
+
 }
 
-const getUsersections = (dispatch) => {
-    return async (data) => {
-
-
-
-        // console.log(JSON.stringify(data, null, 2));
-        console.log('pato');
+const handleVisibility = (dispatch) => {
+    return async () => {
         dispatch({
-            type: 'SET_SECTIONS_USER',
+            type: 'SET_VISIBILITY_STATE',
             payload: {
-                data
+                isVisible: true,
             }
         })
     }
+
 }
-
-
-const getUserQuestion = (dispatch) => {
-    return async (data) => {
-
-        // console.log(JSON.stringify(data, null, 2));
-        dispatch({
-            type: 'SET_QUESTION_USER',
-            payload: {
-                data
-            }
-        })
-    }
-}
-
 
 
 
@@ -157,10 +216,11 @@ export const { Context, Provider } = createDataContext(
     RegistrationReducer,
     {
         clearState,
-        getUserQuestionnaires,
-        getUserQuestion,
-        getUsersections,
-        isVisibleModal
+        handleVisibility,
+        isVisibleModal,
+        handleInputChange,
+        handleInputChangeMask,
+        getCatalog
 
     },
     initialState

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Text, TextInput, } from 'react-native'
 import { Stack, CheckBox } from 'react-native-elements'
-import { RegistrationStyle } from '../../theme/customTheme'
+import { ExpendienteStyle } from '../../theme/customTheme'
 import MaskInput, { Masks } from 'react-native-mask-input';
 
 const InputTwoLabel = ({ name, placeholder1, placeholder2, mask }) => {
@@ -40,7 +40,7 @@ const InputTwoLabel = ({ name, placeholder1, placeholder2, mask }) => {
                     ?
                     <View style={{ flex: 1 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-                           <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
+                            <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
                                 < MaskInput
                                     value={'12/04/1995'}
                                     mask={Masks.DATE_DDMMYYYY}
@@ -48,7 +48,7 @@ const InputTwoLabel = ({ name, placeholder1, placeholder2, mask }) => {
                                     onChangeText={(masked, unmasked) => console.log(masked)}
                                 />
                             </View>
-                           <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2', marginLeft: 20 } : {marginLeft: 20}]}>
+                            <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2', marginLeft: 20 } : { marginLeft: 20 }]}>
                                 <TextInput
                                     placeholder={placeholder2}
                                     value={''}
@@ -59,14 +59,14 @@ const InputTwoLabel = ({ name, placeholder1, placeholder2, mask }) => {
                     :
                     <View style={{ flex: 1 }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-                            <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
+                            <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
                                 <TextInput
                                     editable={check2 === 0}
                                     placeholder='Inicio'
                                     value={''}
                                 />
                             </View>
-                            <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2', marginLeft: 20 } : {marginLeft: 20}]}>
+                            <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2', marginLeft: 20 } : { marginLeft: 20 }]}>
                                 <TextInput
                                     editable={check2 === 0}
                                     placeholder='Suspendió'

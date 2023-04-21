@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Text, TextInput, } from 'react-native'
 import { Icon, CheckBox } from 'react-native-elements'
 import MaskInput, { Masks } from 'react-native-mask-input';
-import { RegistrationStyle } from '../../theme/customTheme'
+import { ExpendienteStyle } from '../../theme/customTheme'
 
 
 const InputMarkLabel = ({ name, placeholder1, placeholder2 }) => {
@@ -36,7 +36,7 @@ const InputMarkLabel = ({ name, placeholder1, placeholder2 }) => {
                     />
                 </View>
             </View>
-            <View  style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? {backgroundColor: '#f2f2f2'} : null]}>
+            <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
 
                 < MaskInput
                     value={'12/04/1995'}
@@ -46,7 +46,7 @@ const InputMarkLabel = ({ name, placeholder1, placeholder2 }) => {
                     keyboardType="numeric"
                     onChangeText={(masked, unmasked) => console.log(masked)}
                 />
-               <Icon type='antdesign' name='calendar' size={25} color='#003C71'  />
+                <Icon type='antdesign' name='calendar' size={25} color='#003C71' />
             </View>
         </View >
     )

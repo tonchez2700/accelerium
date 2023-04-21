@@ -48,7 +48,7 @@ export const general = StyleSheet.create({
     },
 })
 
-export const RegistrationStyle = StyleSheet.create({
+export const ExpendienteStyle = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF',
@@ -88,5 +88,56 @@ export const RegistrationStyle = StyleSheet.create({
         borderRadius: 4,
 
     },
+})
 
+export const RegisterStyle = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+        padding: 5
+    },
+    ViewBoder: {
+        borderWidth: 2,
+        borderColor: '#7F7F7F',
+        padding: 10,
+        margin: 10,
+        position: 'relative',
+        borderRadius: 4
+    },
+    TextBoder: {
+        position: 'absolute',
+        top: -10,
+        left: 10,
+        backgroundColor: 'white',
+        paddingHorizontal: 5,
+        fontSize: 16,
+    },
+    TextDropBoder: {
+        position: 'absolute',
+        backgroundColor: 'white',
+        left: 22,
+        top: 1,
+        zIndex: 999,
+        paddingHorizontal: 5,
+        fontSize: 16,
+    },
+    Input: {
+        paddingLeft: 20,
+    },
+    InputAcordion: {
+        borderWidth: 2,
+        borderColor: '#7F7F7F',
+        padding: 10,
+        borderRadius: 4
+    },
+    PersonalPato: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        borderWidth: 2,
+        borderColor: '#7F7F7F',
+        padding: 10,
+        position: 'relative',
+        borderRadius: 4,
+
+    },
 })

@@ -6372,11 +6372,6 @@ react-native-accordion-list-view@^2.0.1:
   dependencies:
     react-native-vector-icons "*"
 
-react-native-blinkid@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-blinkid/-/react-native-blinkid-1.1.0.tgz#7bd7648b99c9327bad1259fd3c81276c7191ba40"
-  integrity sha512-+8IcFHFX5LaTyG08XSO7Bm5J/OO0s9M0qovCPR+C6m1tDkSR8eI5SrqAjkBsr3sjSyAwR9P1AnAc44bxXuyu0A==
-
 react-native-blob-util@^0.17.0:
   version "0.17.2"
   resolved "https://registry.yarnpkg.com/react-native-blob-util/-/react-native-blob-util-0.17.2.tgz#5a3b31d827bd8cc4306cf6fa39e842a38c5d96b0"
@@ -6399,6 +6394,13 @@ react-native-communications@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-native-communications/-/react-native-communications-2.2.1.tgz#7883b56b20a002eeb790c113f8616ea8692ca795"
   integrity sha512-5+C0X9mopI0+qxyQHzOPEi5v5rxNBQjxydPPiKMQSlX1RBIcJ8uTcqUPssQ9Mo8p6c1IKIWJUSqCj4jAmD0qVQ==
+
+react-native-element-dropdown@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-element-dropdown/-/react-native-element-dropdown-2.9.0.tgz#c218ab512bd8be69fa0ac70462293863f8cfd527"
+  integrity sha512-2Y/bmoFPTdKOUXbYloEKpMTWYE2VHrvva/5tgEuHqAlfAtGGr3r/ob0L0YYH1am5N0n1PKo3+eLf0c79QUSzYw==
+  dependencies:
+    lodash "^4.17.21"
 
 react-native-elements@^3.4.2:
   version "3.4.3"

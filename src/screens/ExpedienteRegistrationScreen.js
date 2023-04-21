@@ -3,7 +3,7 @@ import {
     StyleSheet, View, ScrollView, TextInput,
     Text, ActivityIndicator
 } from 'react-native';
-import { RegistrationStyle } from '../theme/customTheme';
+import { ExpendienteStyle } from '../theme/customTheme';
 import { Button, Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
 import { Context as RegistrationContext } from '../context/RegistrationContext';
@@ -19,7 +19,7 @@ import ModalAlert from '../components/Modal/ModalAlert';
 import tw from 'tailwind-react-native-classnames'
 
 
-const PatientRegistrationScreen = () => {
+const ExpedienteRegistrationScreen = () => {
 
 
     const navigation = useNavigation();
@@ -29,66 +29,66 @@ const PatientRegistrationScreen = () => {
     const renderContent = () => {
 
         return (
-            <ScrollView style={RegistrationStyle.container}>
+            <ScrollView style={ExpendienteStyle.container}>
 
                 <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', }}>
-                    <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                        <Text style={RegistrationStyle.TextBoder}>Expediente / Nombre / Apellidos</Text>
+                    <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                        <Text style={ExpendienteStyle.TextBoder}>Expediente / Nombre / Apellidos</Text>
                         <TextInput
-                            style={RegistrationStyle.Input}
+                            style={ExpendienteStyle.Input}
                             value={text}
                             onChangeText={setText}
                         />
                     </View>
-                    <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                        <Text style={RegistrationStyle.TextBoder}>Fecha</Text>
+                    <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                        <Text style={ExpendienteStyle.TextBoder}>Fecha</Text>
                         <TextInput
-                            style={RegistrationStyle.Input}
+                            style={ExpendienteStyle.Input}
                             value={text}
                             onChangeText={setText}
                         />
                     </View>
                 </View>
 
-                <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                    <Text style={RegistrationStyle.TextBoder}>Nombre</Text>
+                <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                    <Text style={ExpendienteStyle.TextBoder}>Nombre</Text>
                     <TextInput
-                        style={RegistrationStyle.Input}
+                        style={ExpendienteStyle.Input}
                         value={text}
                         onChangeText={setText}
                     />
                 </View>
                 <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', }}>
-                    <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                        <Text style={RegistrationStyle.TextBoder}>Fecha de nacimiento</Text>
+                    <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                        <Text style={ExpendienteStyle.TextBoder}>Fecha de nacimiento</Text>
                         <TextInput
-                            style={RegistrationStyle.Input}
+                            style={ExpendienteStyle.Input}
                             value={text}
                             onChangeText={setText}
                         />
                     </View>
-                    <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                        <Text style={RegistrationStyle.TextBoder}>Edad</Text>
+                    <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                        <Text style={ExpendienteStyle.TextBoder}>Edad</Text>
                         <TextInput
-                            style={RegistrationStyle.Input}
+                            style={ExpendienteStyle.Input}
                             value={text}
                             onChangeText={setText}
                         />
                     </View>
                 </View>
                 <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', }}>
-                    <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                        <Text style={RegistrationStyle.TextBoder}>Número de expediente</Text>
+                    <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                        <Text style={ExpendienteStyle.TextBoder}>Número de expediente</Text>
                         <TextInput
-                            style={RegistrationStyle.Input}
+                            style={ExpendienteStyle.Input}
                             value={text}
                             onChangeText={setText}
                         />
                     </View>
-                    <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                        <Text style={RegistrationStyle.TextBoder}>Sexo</Text>
+                    <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                        <Text style={ExpendienteStyle.TextBoder}>Sexo</Text>
                         <TextInput
-                            style={RegistrationStyle.Input}
+                            style={ExpendienteStyle.Input}
                             value={text}
                             onChangeText={setText}
                         />
@@ -97,10 +97,10 @@ const PatientRegistrationScreen = () => {
                 <Text style={{ fontSize: 30, textAlign: 'center', color: '#003C71', fontWeight: 'bold' }}>
                     ¿Alergias a algún medicamento, alimento o sustancia?
                 </Text>
-                <View style={[RegistrationStyle.ViewBoder, { flex: 1 }]}>
-                    <Text style={RegistrationStyle.TextBoder}>Alergias</Text>
+                <View style={[ExpendienteStyle.ViewBoder, { flex: 1 }]}>
+                    <Text style={ExpendienteStyle.TextBoder}>Alergias</Text>
                     <TextInput
-                        style={RegistrationStyle.Input}
+                        style={ExpendienteStyle.Input}
                         value={text}
                         onChangeText={setText}
                     />
@@ -116,7 +116,7 @@ const PatientRegistrationScreen = () => {
                         <View style={{ flex: 1, marginTop: 20 }}>
                             <Text style={{ fontSize: 26, color: '#003C71', fontWeight: 'bold' }}>Otras enfermedades</Text>
                             <TextInput
-                                style={[RegistrationStyle.InputAcordion, { flex: 1 }]}
+                                style={[ExpendienteStyle.InputAcordion, { flex: 1 }]}
                                 value={text}
                                 onChangeText={setText}
                             />
@@ -126,7 +126,7 @@ const PatientRegistrationScreen = () => {
                                     const { height } = event.nativeEvent.contentSize;
                                     setHeight(height);
                                 }}
-                                style={[RegistrationStyle.InputAcordion, { flex: 1, marginTop: 15, height: Math.max(100, height) }]}
+                                style={[ExpendienteStyle.InputAcordion, { flex: 1, marginTop: 15, height: Math.max(100, height) }]}
                                 multiline={true}
                                 onChangeText={setText}
                             />
@@ -163,7 +163,7 @@ const PatientRegistrationScreen = () => {
                 } />
                 <AnimetedText title="Registro de medicamentos utilizados previo al ingreso" content={
                     <View style={{ flex: 1, padding: 10, }}>
-q               
+
                     </View>
                 } />
                 <AnimetedText title="ANTECEDENTES PERSONALES PATOLÓGICOS" content={
@@ -210,6 +210,6 @@ q
             <ActivityIndicator size="large" color="#118EA6" style={tw`mt-5`} />
     )
 }
-export default PatientRegistrationScreen
+export default ExpedienteRegistrationScreen
 
 const styles = StyleSheet.create({})

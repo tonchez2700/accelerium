@@ -7,7 +7,8 @@ import { Provider as RegistrationProvider } from '../context/RegistrationContext
 import { Context as AuthContext } from '../context/AuthContext';
 
 import HomeScreen from './HomeScreen';
-import PatientRegistrationScreen from './PatientRegistrationScreen';
+import ExpedienteRegistrationScreen from './ExpedienteRegistrationScreen';
+import RegisterScreen from './RegisterScreen';
 
 import tw from 'tailwind-react-native-classnames';
 import Images from '@assets/images';
@@ -23,7 +24,6 @@ const WrapperInnerScreens = () => {
     const CustomDrawerContent = (props) => {
         return (
             <View style={[tw`flex-1`, { backgroundColor: '#ECECEC' }]}>
-
                 <SimpleNavBar />
                 <DrawerContentScrollView {...props}
                     style={{ paddingVertical: 0, marginTop: -5, backgroundColor: '#ECECEC' }}>
@@ -33,7 +33,7 @@ const WrapperInnerScreens = () => {
                     />
                     <DrawerItem
                         label="Inicio"
-                        onPress={() => props.navigation.navigate('PatientRegistration')}
+                        onPress={() => props.navigation.navigate('ExpedienteRegistrationScreen')}
                     />
                     <DrawerItem
                         label="Salir"
@@ -42,9 +42,7 @@ const WrapperInnerScreens = () => {
                             props.navigation.closeDrawer()
                         }}
                     />
-
                 </DrawerContentScrollView>
-
             </View>
         )
     }
@@ -66,7 +64,8 @@ const WrapperInnerScreens = () => {
                     drawerContent={(props) => <CustomDrawerContent {...props} />}
                     useLegacyImplementation>
                     <Drawer.Screen name="Inicio" component={HomeScreen} />
-                    <Drawer.Screen name="PatientRegistration" component={PatientRegistrationScreen} />
+                    <Drawer.Screen name="RegisterScreen" component={RegisterScreen} />
+                    <Drawer.Screen name="ExpedienteRegistrationScreen" component={ExpedienteRegistrationScreen} />
                 </Drawer.Navigator>
             </RegistrationProvider>
         </SafeAreaView>

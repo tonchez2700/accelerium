@@ -3,10 +3,10 @@ import {
     StyleSheet, View, ScrollView, TouchableOpacity,
     Text, ActivityIndicator, Animated
 } from 'react-native';
+import { Context as RegistrationContext } from '../context/RegistrationContext';
 import { general } from '../theme/customTheme';
 import { Icon, Button, Slider } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import { Context as AccountDataContext } from '../context/RegistrationContext';
 import tw from 'tailwind-react-native-classnames'
 import MenuItem from '../components/MenuItem';
 import moment from 'moment';
@@ -15,12 +15,8 @@ const HomeScreen = () => {
 
 
     const navigation = useNavigation();
+    const { state } = useContext(RegistrationContext);
 
-    const handleScanningFinished = (result) => {
-        console.log(result);
-    };
-
-    const { state } = useContext(AccountDataContext);
 
     const renderContent = () => {
 
@@ -33,13 +29,13 @@ const HomeScreen = () => {
                             icon='user-plus'
                             color='#003C71'
                             fontFamily='font-awesome-5'
-                            navigateScreen='PatientRegistration' />
+                            navigateScreen='RegisterScreen' />
                         <MenuItem
-                            title='PACIENTES'
+                            title='REGISTRO DE EXPEDIENTE'
                             icon='user'
                             color='#003C71'
                             fontFamily='font-awesome-5'
-                            navigateScreen='PatientRegistration' />
+                            navigateScreen='ExpedienteRegistrationScreen' />
                     </View>
                 </View >
             </View >

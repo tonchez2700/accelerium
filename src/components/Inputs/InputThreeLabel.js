@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Text, TextInput, } from 'react-native'
 import { Stack, CheckBox } from 'react-native-elements'
-import { RegistrationStyle } from '../../theme/customTheme'
+import { ExpendienteStyle } from '../../theme/customTheme'
 
 
 const InputThreeLabel = ({ title, input1, input2, input3, placeholder }) => {
@@ -36,7 +36,7 @@ const InputThreeLabel = ({ title, input1, input2, input3, placeholder }) => {
                 </View>
             </View>
             <View style={{ flex: 1 }}>
-                <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
+                <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
                     <TextInput
                         placeholder={placeholder}
                         editable={check2 === 0}
@@ -44,14 +44,14 @@ const InputThreeLabel = ({ title, input1, input2, input3, placeholder }) => {
                     />
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-                    <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
+                    <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
                         <TextInput
                             editable={check2 === 0}
                             placeholder='Inicio'
                             value={''}
                         />
                     </View>
-                    <View style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2', marginLeft: 20 } : {marginLeft: 20}]}>
+                    <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2', marginLeft: 20 } : { marginLeft: 20 }]}>
                         <TextInput
                             editable={check2 === 0}
                             placeholder='Suspendió'

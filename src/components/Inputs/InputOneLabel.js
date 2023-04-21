@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Text, TextInput, } from 'react-native'
 import { Icon, CheckBox } from 'react-native-elements'
-import { RegistrationStyle } from '../../theme/customTheme'
+import { ExpendienteStyle } from '../../theme/customTheme'
 
 
 const InputOneLabel = ({ name, placeholder }) => {
@@ -35,7 +35,7 @@ const InputOneLabel = ({ name, placeholder }) => {
                     />
                 </View>
             </View>
-            <View  style={[RegistrationStyle.PersonalPato, { flex: 1 }, check2 === 1 ? {backgroundColor: '#f2f2f2'} : null]}>
+            <View style={[ExpendienteStyle.PersonalPato, { flex: 1 }, check2 === 1 ? { backgroundColor: '#f2f2f2' } : null]}>
                 <TextInput
                     placeholder={placeholder}
                     editable={check2 === 0}
