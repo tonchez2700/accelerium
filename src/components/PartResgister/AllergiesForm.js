@@ -4,10 +4,9 @@ import { RegisterStyle } from "../../theme/customTheme";
 import { Icon, Button, CheckBox } from "react-native-elements";
 import moment from "moment";
 
-const AllergiesForm = () => {
+const AllergiesForm = ({ data, onChangeText }) => {
 
-  const [text, setText] = useState('');
-  const [check2, setCheck2] = useState(1);
+  const [check2, setCheck2] = useState();
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleAccordion = (id, type) => {
@@ -41,6 +40,7 @@ const AllergiesForm = () => {
             checked={check2 === 0}
             onPress={() => {
               toggleAccordion(0, true)
+              onChangeText(1, 'has_alergy', 'patient')
             }}
           />
           <CheckBox
@@ -54,6 +54,7 @@ const AllergiesForm = () => {
             checked={check2 === 1}
             onPress={() => {
               toggleAccordion(1, false)
+              onChangeText(0, 'has_alergy', 'patient')
             }}
           />
         </View>
@@ -64,8 +65,8 @@ const AllergiesForm = () => {
               fontSize={24}
               placeholder="Alergia a"
               style={RegisterStyle.Input}
-              value={text}
-              onChangeText={setText}
+              value={data?.patient?.alergies}
+              onChangeText={(value) => onChangeText(value, 'alergies', 'patient')}
             />
           </View>
         )}

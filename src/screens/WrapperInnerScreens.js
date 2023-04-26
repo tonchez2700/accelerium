@@ -9,6 +9,7 @@ import { Context as AuthContext } from '../context/AuthContext';
 import HomeScreen from './HomeScreen';
 import ExpedienteRegistrationScreen from './ExpedienteRegistrationScreen';
 import RegisterScreen from './RegisterScreen';
+import PhotoScreen from './PhotoScreen';
 
 import tw from 'tailwind-react-native-classnames';
 import Images from '@assets/images';
@@ -29,11 +30,7 @@ const WrapperInnerScreens = () => {
                     style={{ paddingVertical: 0, marginTop: -5, backgroundColor: '#ECECEC' }}>
                     <DrawerItem
                         label="Inicio"
-                        onPress={() => props.navigation.navigate('Inicio')}
-                    />
-                    <DrawerItem
-                        label="Inicio"
-                        onPress={() => props.navigation.navigate('ExpedienteRegistrationScreen')}
+                        onPress={() => props.navigation.navigate('HomeScreen')}
                     />
                     <DrawerItem
                         label="Salir"
@@ -63,9 +60,10 @@ const WrapperInnerScreens = () => {
                     }}
                     drawerContent={(props) => <CustomDrawerContent {...props} />}
                     useLegacyImplementation>
-                    <Drawer.Screen name="Inicio" component={HomeScreen} />
+                    <Drawer.Screen name="HomeScreen" component={HomeScreen} />
                     <Drawer.Screen name="RegisterScreen" component={RegisterScreen} />
                     <Drawer.Screen name="ExpedienteRegistrationScreen" component={ExpedienteRegistrationScreen} />
+                    <Drawer.Screen name="PhotoScreen" component={PhotoScreen} />
                 </Drawer.Navigator>
             </RegistrationProvider>
         </SafeAreaView>

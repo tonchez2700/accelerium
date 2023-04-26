@@ -4,10 +4,9 @@ import { RegisterStyle } from "../../theme/customTheme";
 import { Icon, Button, CheckBox } from "react-native-elements";
 import moment from "moment";
 
-const MedicalExpenses = () => {
+const MedicalExpenses = ({ data, onChangeText }) => {
 
-  const [text, setText] = useState('');
-  const [check2, setCheck2] = useState(1);
+  const [check2, setCheck2] = useState();
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleAccordion = (id, type) => {
@@ -41,6 +40,7 @@ const MedicalExpenses = () => {
             checked={check2 === 0}
             onPress={() => {
               toggleAccordion(0, true)
+              onChangeText(1, 'has_medical_expenses', 'patient')
             }}
           />
           <CheckBox
@@ -54,6 +54,7 @@ const MedicalExpenses = () => {
             checked={check2 === 1}
             onPress={() => {
               toggleAccordion(1, false)
+              onChangeText(0, 'has_medical_expenses', 'patient')
             }}
           />
         </View>
@@ -64,8 +65,8 @@ const MedicalExpenses = () => {
               fontSize={24}
               placeholder="Gastos médicos"
               style={RegisterStyle.Input}
-              value={text}
-              onChangeText={setText}
+              value={data?.patient?.medical_expenses}
+              onChangeText={(value) => onChangeText(value, 'medical_expenses', 'patient')}
             />
           </View>
         )}

@@ -20,9 +20,10 @@ const ContactsRegister = ({ data, Catalog, onChangeText }) => {
         <View style={[RegisterStyle.ViewBoder, { flex: 1 }]}>
           <Text style={RegisterStyle.TextBoder}>Persona responsable</Text>
           <TextInput
+            fontSize={24}
             placeholder="Persona responsable"
             style={RegisterStyle.Input}
-            value={data?.contact.name1}
+            value={data?.contact?.name1}
             onChangeText={(value) => onChangeText(value, 'name1', 'contact')}
           />
         </View>
@@ -32,7 +33,7 @@ const ContactsRegister = ({ data, Catalog, onChangeText }) => {
             <DropdownSelect
               data={Catalog.relations}
               type={'--Selecciona un parentesco--'}
-              value={data?.contact.relation1_id}
+              value={data?.contact?.relation1_id}
               fun={(item) => onChangeText(item, 'relation1_id', 'contact')}
             />
           </View>
@@ -42,7 +43,7 @@ const ContactsRegister = ({ data, Catalog, onChangeText }) => {
               fontSize={24}
               placeholder="Teléfono"
               style={RegisterStyle.Input}
-              mask={[/\d/, /\d/, '', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+              mask={[/\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
               keyboardType="numeric"
               value={NumMask}
               onChangeText={(masked, unmasked) => { onChangeText(unmasked, 'phone1', 'contact'), setNum(unmasked) }}

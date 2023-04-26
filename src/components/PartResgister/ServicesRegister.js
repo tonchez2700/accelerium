@@ -5,7 +5,7 @@ import { Icon, Button, Slider } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import moment from "moment";
 
-const ServicesRegister = () => {
+const ServicesRegister = ({ data, onChangeText }) => {
 
   const navigation = useNavigation();
   const countries = ["Masculino", "Femeninio",]
@@ -24,8 +24,8 @@ const ServicesRegister = () => {
             fontSize={24}
             placeholder="Servicios"
             style={RegisterStyle.Input}
-            value={text}
-            onChangeText={setText}
+            value={data?.admission?.services}
+            onChangeText={(value) => onChangeText(value, 'services', 'admission')}
           />
         </View>
       </View>

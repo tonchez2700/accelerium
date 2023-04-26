@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, } from "react";
 import { StyleSheet, View, TouchableOpacity, Text, TextInput, ActivityIndicator, } from "react-native";
 import { RegisterStyle } from "../../theme/customTheme";
+import { useNavigation } from "@react-navigation/native";
 import MaskInput, { Masks, createNumberMask } from 'react-native-mask-input';
 import { Icon, Button, Slider } from "react-native-elements";
 import DropdownSelect from "../Inputs/DropdownSelect";
@@ -9,14 +10,19 @@ import moment from "moment";
 
 const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
 
+  const navigation = useNavigation();
   const [NumMask, setNum] = useState('');
   const [birthdateMask, setbirthdate] = useState('');
   const date = new Date()
   const initial_date = moment(date).format('DD-MM-YYYY')
   const initial_hours = moment(date).format('hh:mm')
 
-
-
+  useEffect(() => {
+    // (state.file_number.register_number, 'file_number', 'admission')
+    onChangeText(moment(date).format('YYYY-MM-DD'), 'admission_date', 'admission')
+    onChangeText(initial_hours, 'admission_time', 'admission')
+    onChangeText(NoFile.register_number, 'file_number', 'admission')
+  }, []);
 
   return (
     <View style={RegisterStyle.container}>
@@ -59,7 +65,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
             fontSize={24}
             placeholder="Nombre(s)"
             style={RegisterStyle.Input}
-            value={data?.patient.name}
+            value={data?.patient?.name}
             onChangeText={(value) => onChangeText(value, 'name', 'patient')}
           />
         </View>
@@ -70,7 +76,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
               fontSize={24}
               placeholder="Apellido Paterno"
               style={RegisterStyle.Input}
-              value={data?.patient.paternal_surname}
+              value={data?.patient?.paternal_surname}
               onChangeText={(value) => onChangeText(value, 'paternal_surname', 'patient')}
             />
           </View>
@@ -80,7 +86,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
               fontSize={24}
               placeholder="Apellido Materno"
               style={RegisterStyle.Input}
-              value={data?.patient.maternal_surname}
+              value={data?.patient?.maternal_surname}
               onChangeText={(value) => onChangeText(value, 'maternal_surname', 'patient')}
             />
           </View>
@@ -91,7 +97,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
             <DropdownSelect
               data={Catalog.documents}
               type={'--Documento--'}
-              value={data?.patient.document_id}
+              value={data?.patient?.document_id}
               fun={(item) => onChangeText(item, 'document_id', 'patient')}
             />
           </View>
@@ -101,7 +107,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
               fontSize={24}
               placeholder="Número *"
               style={RegisterStyle.Input}
-              value={data?.patient.document_number}
+              value={data?.patient?.document_number}
               onChangeText={(value) => onChangeText(value, 'document_number', 'patient')}
             />
           </View>
@@ -113,7 +119,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
             <DropdownSelect
               data={Catalog.genders}
               type={'Selecciona el Género'}
-              value={data?.patient.gender_id}
+              value={data?.patient?.gender_id}
               fun={(item) => onChangeText(item, 'gender_id', 'patient')}
             />
           </View>
@@ -122,7 +128,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
             <DropdownSelect
               data={Catalog.civil_statuses}
               type={'--Selecciona un estado civil--'}
-              value={data?.patient.civil_status_id}
+              value={data?.patient?.civil_status_id}
               fun={(item) => onChangeText(item, 'civil_status_id', 'patient')}
             />
           </View>
@@ -135,10 +141,19 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
               maxLength={10}
               placeholder="Fecha de nacimiento"
               style={RegisterStyle.Input}
-              mask={Masks.DATE_DDMMYYYY}
+              mask={[/\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
               keyboardType="numeric"
               value={birthdateMask}
-              onChangeText={(masked, unmasked) => { onChangeText(unmasked, 'birthdate', 'patient'), setbirthdate(unmasked) }}
+              onChangeText={(masked, unmasked) => {
+                if (masked.length == 10) {
+                  const [dia, mes, anio] = masked.split("-");
+                  const fecha = new Date(anio, mes - 1, dia);
+                  onChangeText(moment(fecha).format('YYYY-MM-DD'), 'birthdate', 'patient')
+                } else {
+                  null
+                }
+                setbirthdate(masked)
+              }}
             />
           </View>
           <View style={[RegisterStyle.ViewBoder, { flex: 1 }]}>
@@ -149,7 +164,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
               maxLength={3}
               keyboardType="number-pad"
               style={RegisterStyle.Input}
-              value={data?.patient.age}
+              value={data?.patient?.age}
               onChangeText={(value) => onChangeText(value, 'age', 'patient')}
             />
           </View>
@@ -161,7 +176,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
             style={RegisterStyle.Input}
             keyboardType="email-address"
             placeholder="example@correo.com.mx"
-            value={data?.patient.email}
+            value={data?.patient?.email}
             onChangeText={(value) => onChangeText(value, 'email', 'patient')}
           />
         </View>
@@ -172,10 +187,10 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
             placeholder="Teléfono"
             maxLength={12}
             style={RegisterStyle.Input}
-            mask={[/\d/, /\d/, '', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+            mask={[/\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
             keyboardType="numeric"
             value={NumMask}
-            onChangeText={(masked, unmasked) => { onChangeText(unmasked, 'phone', 'patient'), setNum(unmasked) }}
+            onChangeText={(masked, unmasked) => { onChangeText(masked, 'phone', 'patient'), setNum(masked) }}
           />
         </View>
       </View>

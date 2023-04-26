@@ -18,27 +18,27 @@ const HomeScreen = () => {
     const { state } = useContext(RegistrationContext);
 
 
-    const renderContent = () => {
+        const renderContent = () => {
 
-        return (
-            <View style={{ flex: 1, backgroundColor: '#F7F8FAF', padding: 20, }}>
-                <View style={{ flex: 1, backgroundColor: '#FFFFFF', padding: 20, borderWidth: 1, borderColor: '#7F7F7F', borderRadius: 10, alignItems: 'center' }}>
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', width: '100%' }}>
-                        <MenuItem
-                            title='REGISTRO DE PACIENTES'
-                            icon='user-plus'
-                            color='#003C71'
-                            fontFamily='font-awesome-5'
-                            navigateScreen='RegisterScreen' />
-                        <MenuItem
-                            title='REGISTRO DE EXPEDIENTE'
-                            icon='user'
-                            color='#003C71'
-                            fontFamily='font-awesome-5'
-                            navigateScreen='ExpedienteRegistrationScreen' />
-                    </View>
+            return (
+                <View style={{ flex: 1, backgroundColor: '#F7F8FAF', padding: 20, }}>
+                    <View style={{ flex: 1, backgroundColor: '#FFFFFF', padding: 20, borderWidth: 1, borderColor: '#7F7F7F', borderRadius: 10, alignItems: 'center' }}>
+                        <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', width: '100%' }}>
+                            <MenuItem
+                                title='REGISTRO DE PACIENTES'
+                                icon='user-plus'
+                                color='#003C71'
+                                fontFamily='font-awesome-5'
+                                navigateScreen='RegisterScreen' />
+                            <MenuItem
+                                title='REGISTRO DE EXPEDIENTE'
+                                icon='user'
+                                color='#003C71'
+                                fontFamily='font-awesome-5'
+                                navigateScreen='ExpedienteRegistrationScreen' />
+                        </View>
+                    </View >
                 </View >
-            </View >
 
         );
     }

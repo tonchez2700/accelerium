@@ -25,7 +25,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
               fontSize={24}
               placeholder="Colonia"
               style={RegisterStyle.Input}
-              value={data?.address.suburb}
+              value={data?.address?.suburb}
               onChangeText={(value) => onChangeText(value, 'suburb', 'address')}
             />
           </View>
@@ -35,7 +35,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
               fontSize={24}
               placeholder="Número"
               style={RegisterStyle.Input}
-              value={data?.address.house_number}
+              value={data?.address?.house_number}
               onChangeText={(value) => onChangeText(value, 'house_number', 'address')}
             />
           </View>
@@ -46,7 +46,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
             fontSize={24}
             placeholder="Calle"
             style={RegisterStyle.Input}
-            value={data?.address.street}
+            value={data?.address?.street}
             onChangeText={(value) => onChangeText(value, 'street', 'address')}
           />
         </View>
@@ -58,7 +58,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
               maxLength={5}
               placeholder="C.P."
               style={RegisterStyle.Input}
-              value={data?.address.postal_code}
+              value={data?.address?.postal_code}
               onChangeText={(value) => onChangeText(value, 'postal_code', 'address')}
             />
           </View>
@@ -68,8 +68,8 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
               fontSize={24}
               placeholder="Ciudad*"
               style={RegisterStyle.Input}
-              value={data?.address.city}
-              onChangeText={(value) => onChangeText(value, 'age', 'city')}
+              value={data?.address?.city}
+              onChangeText={(value) => onChangeText(value, 'city', 'address')}
             />
           </View>
         </View>
@@ -80,7 +80,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
               fontSize={24}
               placeholder="Estado"
               style={RegisterStyle.Input}
-              value={data?.address.state}
+              value={data?.address?.state}
               onChangeText={(value) => onChangeText(value, 'state', 'address')}
             />
           </View>
