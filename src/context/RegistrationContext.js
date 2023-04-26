@@ -5,7 +5,6 @@ import httpClient from '../services/httpClient'
 import httpClientId from '../services/httpClientId';
 import { Base64 } from 'js-base64';
 import * as rootNavigation from '../helpers/rootNavigation';
-import moment from 'moment';
 
 const initialState = {
     error: false,
@@ -27,6 +26,14 @@ const RegistrationReducer = (state = initialState, action) => {
             }
         case 'FETCHING_DATA':
             return { ...state, fetchingData: action.payload.fetchingData }
+        case 'SET_CLEAR':
+            return {
+                ...state,
+                error: false,
+                message: null,
+                fetchingData: false,
+                dataFrom: [],
+            }
         case 'SET_REQUEST_ERROR':
             return {
                 ...state,
@@ -290,23 +297,28 @@ const storePxPatients = (dispatch) => {
             // const validated = validateData(data)
             const user = JSON.parse(await AsyncStorage.getItem('user'));
             const token = user.token
-            console.log("Haci lo mando yo", data);
             const response = await httpClient
                 .post(`px_patients`, data, {
                     'Authorization': `Bearer ${token}`,
                 });
-            console.log(JSON.stringify(response, null, 2));
-            if (!response.errors) {
-                Alert.alert('Correcto', `${response.message}`, [
-                    { text: 'OK' },
-                ]);
-                dispatch({ type: 'FETCHING_DATA', payload: { fetchingData: false } });
+            if (response.status) {
+                Alert.alert(
+                    "Correcto",
+                    "Se agrego paciente correctamente",
+                    [{
+                        text: "Aceptar",
+                    }]
+                )
+                dispatch({ type: 'SET_CLEAR' });
+                rootNavigation.navigate('HomeScreen')
             } else {
-                Alert.alert('Correcto', `Se agrego paciente correctamente`, [
-                    { text: 'OK' },
-                ]);
-
-                dispatch({ type: 'CLEAR_STATE' });
+                Alert.alert(
+                    "Error ",
+                    response.message,
+                    [{
+                        text: "Aceptar",
+                    }]
+                )
                 dispatch({ type: 'FETCHING_DATA', payload: { fetchingData: false } });
             }
         } catch (error) {

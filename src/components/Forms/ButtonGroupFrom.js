@@ -16,7 +16,7 @@ const ButtonGroupFrom = ({ data }) => {
                     <TouchableOpacity
                         key={e.id}
                         style={[styles.button, selectedButton === e.id && styles.selectedButton]}
-                        onPress={() => { setSelectedButton(e.id), console.log(e.id) }}
+                        onPress={() => { setSelectedButton(e.id) }}
                     >
                         <Text style={[styles.buttonText, selectedButton === e.id && styles.selectedText]}>{e.description}</Text>
                     </TouchableOpacity>

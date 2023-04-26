@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Text, TouchableWithoutFeedback, UIManager, LayoutAnimation } from 'react-native'
 import tw from 'tailwind-react-native-classnames'
 import { Icon } from 'react-native-elements'

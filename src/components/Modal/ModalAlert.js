@@ -16,13 +16,6 @@ const ModalAlert = () => {
         isVisibleModal,
     } = useContext(AccountDataContext);
 
-    useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            clearState()
-
-        });
-        return unsubscribe;
-    }, [navigation]);
 
     return (
         <View style={styles.body}>

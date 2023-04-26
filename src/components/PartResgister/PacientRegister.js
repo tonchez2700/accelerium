@@ -18,7 +18,6 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
   const initial_hours = moment(date).format('hh:mm')
 
   useEffect(() => {
-    // (state.file_number.register_number, 'file_number', 'admission')
     onChangeText(moment(date).format('YYYY-MM-DD'), 'admission_date', 'admission')
     onChangeText(initial_hours, 'admission_time', 'admission')
     onChangeText(NoFile.register_number, 'file_number', 'admission')

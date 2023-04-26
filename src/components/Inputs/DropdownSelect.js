@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Text, TouchableOpacity, StyleSheet, Dimensions, ViewBase } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { RegisterStyle } from '../../theme/customTheme';
@@ -11,7 +11,7 @@ const { width } = Dimensions.get('window');
 const DropdownSelect = ({ data, type, value, fun }) => {
     const navigation = useNavigation();
     const [value2, setValue2] = useState(null);
-    
+
     return (
 
         <Dropdown

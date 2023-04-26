@@ -18,17 +18,10 @@ import ServicesRegister from "../components/PartResgister/ServicesRegister";
 const RegisterScreen = () => {
 
   const navigation = useNavigation();
-  const { state, getCatalog, handleInputChange, storePxPatients } = useContext(RegistrationContext);
+  const { state, handleInputChange, storePxPatients } = useContext(RegistrationContext);
   const [text, setText] = useState('');
 
-  useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
-      getCatalog();
-
-    });
-    return unsubscribe;
-  }, [navigation]);
-  console.log(JSON.stringify(state.dataFrom, null, 2));
+ 
   const renderContent = () => {
     return (
       <View style={RegisterStyle.container}>
