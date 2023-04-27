@@ -23,10 +23,7 @@ const MedicalExpenses = ({ data, onChangeText }) => {
 
   return (
     <View style={RegisterStyle.container}>
-      <Text style={{
-        backgroundColor: '#003C71', color: 'white', fontSize: 22,
-        fontWeight: "bold", padding: 5, width: '50%', textAlign: 'center', borderTopLeftRadius: 10, borderTopRightRadius: 10
-      }}>GASTOS MÉDICOS</Text>
+      <Text style={RegisterStyle.TittlePage}>GASTOS MÉDICOS</Text>
       <View style={{ borderWidth: 2.3, borderColor: '#003C71', padding: 10 }}>
         <View style={{ flexDirection: 'row' }}>
           <CheckBox

@@ -140,4 +140,15 @@ export const RegisterStyle = StyleSheet.create({
         borderRadius: 4,
 
     },
+    TittlePage: {
+        backgroundColor: '#003C71',
+        color: 'white',
+        fontSize: 22,
+        fontWeight: "bold",
+        padding: 5,
+        width: '50%',
+        textAlign: 'center',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10
+    }
 })

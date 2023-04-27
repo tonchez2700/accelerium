@@ -13,10 +13,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
 
   return (
     <View style={RegisterStyle.container}>
-      <Text style={{
-        backgroundColor: '#003C71', color: 'white', fontSize: 22,
-        fontWeight: "bold", padding: 5, width: '50%', textAlign: 'center', borderTopLeftRadius: 10, borderTopRightRadius: 10
-      }}>DOMICILIO</Text>
+      <Text style={RegisterStyle.TittlePage}>DOMICILIO</Text>
       <View style={{ borderWidth: 2.3, borderColor: '#003C71', padding: 10 }}>
         <View style={{ flexDirection: 'row' }}>
           <View style={[RegisterStyle.ViewBoder, { flex: 1 }]}>
@@ -85,7 +82,7 @@ const AddresRegister = ({ data, Catalog, onChangeText }) => {
             />
           </View>
           <View style={{ flex: 1 }}>
-            <Text style={RegisterStyle.TextBoder}>País<Text style={{ color: 'red' }}> * </Text></Text>
+            <Text style={RegisterStyle.TextDropBoder}>País<Text style={{ color: 'red' }}> * </Text></Text>
             <DropdownSelect
               data={Catalog.countries}
               type={'--Selecciona un país--'}

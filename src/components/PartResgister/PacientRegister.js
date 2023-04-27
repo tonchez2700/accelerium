@@ -25,7 +25,7 @@ const PatientRegister = ({ data, Catalog, NoFile, onChangeText }) => {
 
   return (
     <View style={RegisterStyle.container}>
-      <Text style={{ backgroundColor: '#003C71', color: 'white', fontSize: 22, fontWeight: "bold", padding: 5, width: '50%', textAlign: 'center', borderTopLeftRadius: 10, borderTopRightRadius: 10 }}>HOJA DE ADMISIÓN</Text>
+      <Text style={RegisterStyle.TittlePage}>HOJA DE ADMISIÓN</Text>
       <View style={{ borderWidth: 2.3, borderColor: '#003C71', padding: 10 }}>
         <View style={[RegisterStyle.ViewBoder, { flex: 1, backgroundColor: '#f2f2f2' }]}>
           <Text style={RegisterStyle.TextBoder}>No. Expediente</Text>

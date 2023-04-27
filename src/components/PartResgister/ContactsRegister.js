@@ -12,10 +12,7 @@ const ContactsRegister = ({ data, Catalog, onChangeText }) => {
 
   return (
     <View style={RegisterStyle.container}>
-      <Text style={{
-        backgroundColor: '#003C71', color: 'white', fontSize: 22,
-        fontWeight: "bold", padding: 5, width: '50%', textAlign: 'center', borderTopLeftRadius: 10, borderTopRightRadius: 10
-      }}>CONTACTOS</Text>
+      <Text style={RegisterStyle.TittlePage}>CONTACTOS</Text>
       <View style={{ borderWidth: 2.3, borderColor: '#003C71', padding: 10 }}>
         <View style={[RegisterStyle.ViewBoder, { flex: 1 }]}>
           <Text style={RegisterStyle.TextBoder}>Persona responsable</Text>
